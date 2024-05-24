@@ -9,12 +9,9 @@ body {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   max-width: 100vw;
-  color: var(--devui-text, #252b3a);
-  background-color: var(--devui-base-bg, #ffffff);
 }
 
 #app {
-  text-align: center;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
 }

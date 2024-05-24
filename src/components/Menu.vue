@@ -3,7 +3,7 @@ import { defineComponent, h, ref, Component, computed } from 'vue'
 import { NIcon } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import { useOsTheme, darkTheme } from 'naive-ui'
-import type { GlobalTheme } from 'naive-ui'
+// import type { GlobalTheme } from 'naive-ui'
 import {
   HomeOutline,
   AlbumsOutline,
@@ -34,7 +34,7 @@ const menuOptions: MenuOption[] = [
       h(
         'a',
         {
-          href: './',
+          href: '/',
           rel: 'noopenner noreferrer'
         },
         '首页'
@@ -47,7 +47,7 @@ const menuOptions: MenuOption[] = [
       h(
         'a',
         {
-          href: './Gallery',
+          href: '/Gallery',
           rel: 'noopenner noreferrer'
         },
         '摄影画廊'
@@ -60,7 +60,7 @@ const menuOptions: MenuOption[] = [
       h(
         'a',
         {
-          href: './Documents',
+          href: '/Documents',
           rel: 'noopenner noreferrer'
         },
         '帮助文档'
@@ -78,7 +78,7 @@ const menuOptions: MenuOption[] = [
           h(
             'a',
             {
-              href: './Players',
+              href: '/Players',
               rel: 'noopenner noreferrer'
             },
             '玩家系统'
@@ -91,7 +91,7 @@ const menuOptions: MenuOption[] = [
           h(
             'a',
             {
-              href: './Vote',
+              href: '/Vote',
               rel: 'noopenner noreferrer'
             },
             '表决大厅'
@@ -104,7 +104,7 @@ const menuOptions: MenuOption[] = [
           h(
             'a',
             {
-              href: './Material',
+              href: '/Material',
               rel: 'noopenner noreferrer'
             },
             '材料申请'
@@ -124,7 +124,7 @@ const menuOptions: MenuOption[] = [
           h(
             'a',
             {
-              href: './Chat',
+              href: '/Chat',
               rel: 'noopenner noreferrer'
             },
             '聊天记录'
@@ -137,7 +137,7 @@ const menuOptions: MenuOption[] = [
           h(
             'a',
             {
-              href: './Permission',
+              href: '/Permission',
               rel: 'noopenner noreferrer'
             },
             '权限公开'
@@ -150,7 +150,7 @@ const menuOptions: MenuOption[] = [
           h(
             'a',
             {
-              href: './Issue',
+              href: '/Issue',
               rel: 'noopenner noreferrer'
             },
             '漏洞提交'
@@ -165,7 +165,7 @@ const menuOptions: MenuOption[] = [
       h(
         'a',
         {
-          href: './Integrate',
+          href: '/Integrate',
           rel: 'noopenner noreferrer'
         },
         '灵动整合'
@@ -191,8 +191,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <n-config-provider :theme="theme">
+  <n-config-provider :theme="theme" inline-theme-disabled>
     <n-global-style />
+    <n-back-top/>
     <n-card :bordered="false" content-style="padding: 0;">
     <n-menu
       v-model:value="activeKey"
