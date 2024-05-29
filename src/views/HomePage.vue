@@ -23,8 +23,9 @@ const get_data = async (tableName: string) => {
     const response = await axios.get(`/data/${tableName}`);
     data.value[tableName] = response.data;
 
-    data.value[tableName] = data.value[tableName].slice(0, 4);
-
+    // data.value[tableName] = data.value[tableName].slice(-4);
+    const dataSlice = data.value[tableName].slice(-4);
+    data.value[tableName] = dataSlice.reverse();
     console.log(data.value[tableName]);
   } catch (error) {
     console.error(error);
@@ -73,12 +74,9 @@ onMounted(async () => {
       </n-flex>
       <n-el class="gap flex container" justify="space-between" >
         <n-flex class="img" v-for="item in data['introduce']" :key="item.id" vertical>
-          <img @click="handleClick('Introduce/' + item.link)" :src="'http://127.0.0.1:5000/image/' + item.link + '.png'" alt="111"/>
+          <img @click="handleClick('Introduce/' + item.link)" :src="'http://127.0.0.1:5000/image/' + item.link + '.png'" alt="111" class="modeCard"/>
 
-<!--          长度限制 只要最新的四个-->
-<!--          要把图片搞到数据库里去-->
-
-          <n-h3 @click="handleClick('Introduce/' + item.link)" style="max-width: 17rem">
+          <n-h3 @click="handleClick('Introduce/' + item.link)" style="max-width: 17rem" class="modeCard">
             {{ item.title }}
           </n-h3>
         </n-flex>
@@ -181,6 +179,14 @@ img {
   .img {
     width: 48%;
   }
+}
+.modeCard{
+  transition: all 0.2s;
+}
+
+.modeCard:hover{
+  transition: 0.3s;
+  transform: scale(1.04);
 }
 @media (min-width: 1280px) {
   .margin {
