@@ -74,7 +74,7 @@ onMounted(async () => {
       </n-flex>
       <n-el class="gap flex container" justify="space-between" >
         <n-flex class="img" v-for="item in data['introduce']" :key="item.id" vertical>
-          <img @click="handleClick('Introduce/' + item.link)" :src="'http://127.0.0.1:5000/image/' + item.link + '.png'" alt="111" class="modeCard"/>
+          <img @click="handleClick('Introduce/' + item.link)" :src="`http://192.168.50.163:5000/image/Introduce/${item.link}/${item.link}.png`" alt="111" class="modeCard"/>
 
           <n-h3 @click="handleClick('Introduce/' + item.link)" style="max-width: 17rem" class="modeCard">
             {{ item.title }}

@@ -2,24 +2,19 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../views/HomePage.vue"
 import Content from "../views/Content.vue"
 
-const router = createRouter(
-  {
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
-      {
+const routes = [
+    {
         path: "/",
         name: "HomePage",
         component: HomePage,
-      },
+    },
 
-      {
-        path: "/${table_name}/${link}",
+    {
+        path: "/:table_name/:link",
         name: "Content",
         component: Content,
-      },
-    ]
-  }
-)
+    },
+]
 
 // router.beforeEach((to, from, next) => {
 //     if (to.path === "/manager") {
@@ -30,5 +25,9 @@ const router = createRouter(
 //         }
 //     }
 // })
+const router  = createRouter({
+    history: createWebHistory(),
+    routes
+});
 
 export default router;

@@ -9,7 +9,7 @@ import axios from 'axios'
 
 const app = createApp(App)
 app.config.globalProperties.$http = axios
-axios.defaults.baseURL = 'http://127.0.0.1:5000'
+axios.defaults.baseURL = 'http://192.168.50.163:5000'
 axios.defaults.timeout = 200
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
